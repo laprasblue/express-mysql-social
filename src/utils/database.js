@@ -1,10 +1,10 @@
 const { Sequelize } = require('sequelize')
+const sequelize = new Sequelize('social', 'root', 'password', {
+  host: '127.0.0.1',
+  port: 3306,
+  dialect: 'mysql',
+})
 ;(async () => {
-  const sequelize = new Sequelize('social', 'root', 'password', {
-    host: '127.0.0.1',
-    port: 3306,
-    dialect: 'mysql',
-  })
   try {
     await sequelize.authenticate()
     console.log('Connection has been established successfully.')
@@ -15,3 +15,5 @@ const { Sequelize } = require('sequelize')
     process.exit(1)
   }
 })()
+
+module.exports.sequelize = sequelize
