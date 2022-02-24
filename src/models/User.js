@@ -15,10 +15,6 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  lastName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -35,8 +31,8 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     defaultValue: false,
   },
-  // createdAt: Sequelize.DATE,
-  // updatedAt: Sequelize.DATE,
+  createdAt: Sequelize.DATE,
+  updatedAt: Sequelize.DATE,
 })
 
 module.exports.User = User
