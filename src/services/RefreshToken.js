@@ -13,13 +13,13 @@ module.exports.findByUserId = async (id) => {
 }
 
 module.exports.UpdateByUserId = async (id, refreshToken) => {
-  const user = await RefreshToken.findOne({
+  const result = await RefreshToken.findOne({
     where: {
       userId: id,
     },
   })
-  user.set({
+  result.set({
     refreshToken,
   })
-  return await user.save()
+  return await result.save()
 }

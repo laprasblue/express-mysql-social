@@ -21,3 +21,12 @@ module.exports.findByPhone = async (phone) => {
 module.exports.createUser = async (user) => {
   return await User.create(user)
 }
+
+module.exports.UpdateByUserId = async (userId, profile) => {
+  const user = await User.findByPk(userId)
+  user.set({
+    lastName: profile.lastName,
+    firstName: profile.firstName,
+  })
+  return await user.save()
+}

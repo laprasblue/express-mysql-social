@@ -37,3 +37,37 @@ module.exports.createUser = async (req, res) => {
     return res.sendStatus(500)
   }
 }
+
+module.exports.getUser = async (req, res) => {
+  try {
+    const { userId, firstName, lastName, email, phone, isActive, createdAt, updatedAt } =
+      await UserService.findByEmail(req.profile.email)
+    res.json({
+      userId,
+      firstName,
+      lastName,
+      email,
+      phone,
+      isActive,
+      createdAt,
+      updatedAt,
+    })
+  } catch (error) {
+    console.log(error)
+    return res.sendStatus(500)
+  }
+}
+
+module.exports.updateUser = async (req, res) => {
+  const { lastName, firstName } = req.body
+  try {
+    const user = await UserService.UpdateByUserId(req.profile.userId, { lastName, firstName })
+    res.json({
+      msg: 'Update successfully',
+      user: user,
+    })
+  } catch (error) {
+    console.log(error)
+    return res.sendStatus(500)
+  }
+}
