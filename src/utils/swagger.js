@@ -2,7 +2,7 @@
  * @swagger
  * /api/v1/user/profile:
  *    get:
- *      summary: 'user heelo'
+ *      summary: 'user hello'
  *      tags: [Book]
  *      description:  Endpoint for everything
  *      security:
