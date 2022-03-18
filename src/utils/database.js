@@ -16,6 +16,7 @@ const sequelize = new Sequelize('social', 'root', 'password', {
   }
 })()
 
+// sequelize.sync({force: true})
 sequelize.sync()
 
 module.exports.sequelize = sequelize

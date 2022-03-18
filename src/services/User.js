@@ -11,6 +11,7 @@ module.exports.findByEmail = async (email) => {
     },
   })
 }
+
 module.exports.findByPhone = async (phone) => {
   return await User.findOne({
     where: {
@@ -18,6 +19,7 @@ module.exports.findByPhone = async (phone) => {
     },
   })
 }
+
 module.exports.createUser = async (user) => {
   return await User.create(user)
 }
