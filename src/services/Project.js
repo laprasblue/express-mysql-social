@@ -1,6 +1,6 @@
 const { Project } = require('../models/Project')
 
-module.exports.findCreateByUserId = async (userId) => {
+module.exports.findCreatedByUserId = async (userId) => {
   return await Project.findAll({
     where: {
       userId,
@@ -16,7 +16,7 @@ module.exports.createProject = async (project) => {
   return await Project.create(project)
 }
 
-module.exports.publicProject = async (projectId) => {
+module.exports.publishProject = async (projectId) => {
   const project = await Project.findByPk(projectId)
   project.set({
     isPublic: true,

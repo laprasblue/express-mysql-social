@@ -9,6 +9,7 @@ const {
   createProject,
   getProjectByUserId,
   getProjectByProjectId,
+  publishProject
 } = require('../controllers/project')
 
 projectRoute.post(
@@ -19,7 +20,8 @@ projectRoute.post(
   validateParams,
   createProject
 )
-projectRoute.get('/', validateToken, getProjectByUserId)
-projectRoute.get('/:projectId', validateToken, getProjectByProjectId)
+.put('/:projectId/publish', validateToken, publishProject)
+.get('/', validateToken, getProjectByUserId)
+.get('/:projectId', validateToken, getProjectByProjectId)
 
 module.exports = projectRoute
