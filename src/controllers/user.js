@@ -64,7 +64,6 @@ module.exports.updateUser = async (req, res) => {
     const user = await UserService.UpdateByUserId(req.profile.userId, { lastName, firstName })
     res.json({
       msg: 'Update successfully',
-      user: user,
     })
   } catch (error) {
     console.log(error)
